@@ -14,31 +14,57 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 
 
-// Bar padding patch
-static const int user_bh            = 35;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
+// Bar height patch
+static const int user_bh            = 30;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 
 
 // Status padding patch
-static const int horizpadbar        = 10;        /* horizontal padding for statusbar */
+static const int horizpadbar        = 5;        /* horizontal padding for statusbar */
 static const int vertpadbar         = 3;        /* vertical padding for statusbar */
 
+// Bar padding patch
+static const int vertpad            = 10;       /* vertical padding of bar */
+static const int sidepad            = 10;       /* horizontal padding of bar */
 
 
-static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=12" };
+static const char *fonts[]          = { "JetBrainsMono Nerd Font Mono:size=11" };
 static const char dmenufont[]       =   "JetBrainsMono Nerd Font:size=10" ;
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
+
+
+
+static const char black[]       = "#2A303C";
+static const char white[]       = "#D8DEE9";
+static const char gray2[]       = "#3B4252"; // unfocused window border
+static const char gray3[]       = "#606672";
+static const char gray4[]       = "#6d8dad";
+static const char blue[]        = "#81A1C1";  // focused window border
+static const char green[]       = "#a3be8c";
+static const char red[]         = "#bf616a";
+static const char orange[]      = "#d08770";
+static const char yellow[]      = "#ebcb8b";
+static const char pink[]        = "#e39a83";
+static const char col_borderbar[]  = "#2A303C"; // inner border
+
+
 static const char *colors[][3]      = {
+  
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeNorm] = { white, black, col_gray2 },
+	[SchemeSel]  = { pink, black,  col_cyan  },
 };
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+
+static const unsigned int ulinepad	= 5;	/* horizontal padding between the underline and tag */
+static const unsigned int ulinestroke	= 2;	/* thickness / height of the underline */
+static const unsigned int ulinevoffset	= 0;	/* how far above the bottom of the bar the line should appear */
+static const int ulineall 		= 0;	/* 1 to show underline on all tags, 0 for just the active ones */
 
 static const Rule rules[] = {
 	/* xprop(1):
