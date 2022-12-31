@@ -53,7 +53,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod1Mask
+#define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -70,8 +70,21 @@ static const char *termcmd[]  = { "st", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_c,      spawn,          SHCMD("~/scripts/dmenu_launch.sh --apps") },
+	{ MODKEY|ShiftMask,             XK_c,      spawn,          SHCMD("dmenufm") },
+	{ MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("xprop > /home/sivaplays/xpropinfo") },
+	{ MODKEY,                       XK_Return, spawn,          SHCMD("alacritty") },
+	{ MODKEY,                       XK_p,      spawn,          SHCMD("sh ~/scripts/copy_color.sh") },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("maim -s | xclip -selection clipboard -t image/png") },
+	{ MODKEY,                       XK_x,      spawn,          SHCMD("xkill") },
+	{ MODKEY,                       XK_v,      spawn,          SHCMD("clipmenu") },
+	{ MODKEY,                       XK_q,      killclient,     {0} },
+	{ MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[1]} },
+	// { MODKEY,                       XK_f,      togglefullscr,  {0} },
+ //  { MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
+	// { MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
+  //
+  // 
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
