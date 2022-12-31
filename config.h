@@ -1,5 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
+#include "movestack.c"
+
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -86,8 +88,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_q,      killclient,     {0} },
 	{ MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[1]} },
 	// { MODKEY,                       XK_f,      togglefullscr,  {0} },
- //  { MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
-	// { MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
+  { MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
   //
   // 
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
