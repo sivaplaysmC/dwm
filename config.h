@@ -51,12 +51,26 @@ static const char pink[]        = "#e39a83";
 static const char col_borderbar[]  = "#2A303C"; // inner border
 
 
-static const char *colors[][3]      = {
-  
 	/*               fg         bg         border   */
-	[SchemeNorm] = { white, black, col_gray2 },
-	[SchemeSel]  = { pink, black,  col_cyan  },
+static const char *colors[][3]      = {
+    /*                     fg       bg      border */
+    [SchemeNorm]       = { gray3,   black,  gray2 },
+    [SchemeSel]        = { gray4,   blue,   blue  },
+    [SchemeTitle]      = { white,   black,  black  }, // active window title
+    [TabSel]           = { blue,    gray2,  black },
+    [TabNorm]          = { gray3,   black,  black },
+    [SchemeTag]        = { gray3,   black,  black },
+    [SchemeTag1]       = { blue,    black,  black },
+    [SchemeTag2]       = { red,     black,  black },
+    [SchemeTag3]       = { orange,  black,  black },
+    [SchemeTag4]       = { green,   black,  black },
+    [SchemeTag5]       = { pink,    black,  black },
+    [SchemeLayout]     = { green,   black,  black },
+    [SchemeBtnPrev]    = { green,   black,  black },
+    [SchemeBtnNext]    = { yellow,  black,  black },
+    [SchemeBtnClose]   = { red,     black,  black },
 };
+  
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
@@ -66,6 +80,9 @@ static const unsigned int ulinestroke	= 2;	/* thickness / height of the underlin
 static const unsigned int ulinevoffset	= 0;	/* how far above the bottom of the bar the line should appear */
 static const int ulineall 		= 0;	/* 1 to show underline on all tags, 0 for just the active ones */
 
+static const int tagschemes[] = {
+    SchemeTag1, SchemeTag2, SchemeTag3, SchemeTag4, SchemeTag5 , SchemeTag1, SchemeTag2, SchemeTag3, SchemeTag4
+};
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
