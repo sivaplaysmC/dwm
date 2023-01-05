@@ -27,7 +27,7 @@ static const int vertpad            = 10;       /* vertical padding of bar */
 static const int sidepad            = 10;       /* horizontal padding of bar */
 
 
-static const char *fonts[]          = { "JetBrainsMono Nerd Font Mono:size=11" };
+static const char *fonts[]          = {"JetBrains Mono:style:medium:size=12" ,"JetBrainsMono Nerd Font Mono:style:bold:size=18",};
 static const char dmenufont[]       =   "JetBrainsMono Nerd Font:size=10" ;
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -73,7 +73,7 @@ static const char *colors[][3]      = {
   
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = {"", "", "", "", "" , "", "", "ﭮ" };
 
 static const unsigned int ulinepad	= 5;	/* horizontal padding between the underline and tag */
 static const unsigned int ulinestroke	= 2;	/* thickness / height of the underline */
