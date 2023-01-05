@@ -27,7 +27,9 @@ static const int vertpad            = 10;       /* vertical padding of bar */
 static const int sidepad            = 10;       /* horizontal padding of bar */
 
 
-static const char *fonts[]          = {"JetBrains Mono:style:medium:size=12" ,"JetBrainsMono Nerd Font Mono:style:bold:size=18",};
+static const char *fonts[]          = {"JetBrains Mono:style:medium:size=12" ,
+                                        "JetBrainsMono Nerd Font Mono:style:bold:size=18",
+                                        "Material Design Icons Desktop:size=18"};
 static const char dmenufont[]       =   "JetBrainsMono Nerd Font:size=10" ;
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -54,7 +56,7 @@ static const char col_borderbar[]  = "#2A303C"; // inner border
 	/*               fg         bg         border   */
 static const char *colors[][3]      = {
     /*                     fg       bg      border */
-    [SchemeNorm]       = { gray3,   black,  gray2 },
+    [SchemeNorm]       = { white,   black,  gray2 },
     [SchemeSel]        = { gray4,   blue,   blue  },
     [SchemeTitle]      = { white,   black,  black  }, // active window title
     [TabSel]           = { blue,    gray2,  black },
@@ -72,8 +74,9 @@ static const char *colors[][3]      = {
 };
   
 
-/* tagging */
-static const char *tags[] = {"", "", "", "", "" , "", "", "ﭮ" };
+/* tagging */  // 
+// static const char *tags[] = {"", "", "", "", "" , "", "", "ﭮ" };
+static const char *tags[] = {"", "", "", "", "" , "", "", "ﭮ" };
 
 static const unsigned int ulinepad	= 5;	/* horizontal padding between the underline and tag */
 static const unsigned int ulinestroke	= 2;	/* thickness / height of the underline */
@@ -132,6 +135,8 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("maim -s | xclip -selection clipboard -t image/png") },
 	{ MODKEY,                       XK_x,      spawn,          SHCMD("xkill") },
 	{ MODKEY,                       XK_v,      spawn,          SHCMD("clipmenu") },
+	{ MODKEY,                       XK_m|XK_j, spawn,          SHCMD("pamixer -d 10") },
+  
 	{ MODKEY,                       XK_q,      killclient,     {0} },
 	{ MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_f,      togglefullscr,  {0} },
@@ -166,8 +171,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	// { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
+	// { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
@@ -185,7 +190,8 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+  
+	// &((Keychord){1, {{MODKEY|ShiftMask, XK_q}},					quit,           {0} }),
 };
 
 /* button definitions */
